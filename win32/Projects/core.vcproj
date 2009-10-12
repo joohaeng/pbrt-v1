@@ -1,117 +1,182 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="core"
 	ProjectGUID="{8C159477-7802-4C52-865E-131537BBAD83}"
 	RootNamespace="core"
-	Keyword="LRTProj">
+	Keyword="LRTProj"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="Debug"
 			IntermediateDirectory="Debug"
-			ConfigurationType="2">
+			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../core;../..;../../OpenEXR/include"
-				PreprocessorDefinitions="CORE_SOURCE;WIN32;_DEBUG;_WINDOWS;WINDOWS;_USRDLL;undefined_EXPORTS"
-				MinimalRebuild="TRUE"
+				PreprocessorDefinitions="CORE_SOURCE;WIN32;_DEBUG;_WINDOWS;WINDOWS;_USRDLL;undefined_EXPORTS;YY_NO_UNISTD_H"
+				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="4"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib zdll.lib"
+				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib zlib1.lib"
 				OutputFile="$(OUTDIR)/core.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../OpenEXR/lib-win32"
-				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="libc.lib"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OUTDIR)/core.pdb"
 				SubSystem="2"
 				ImportLibrary="$(OUTDIR)/core.lib"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="Release"
 			IntermediateDirectory="Release"
-			ConfigurationType="2">
+			ConfigurationType="2"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="../../core;../..;../../OpenEXR/include"
 				PreprocessorDefinitions="CORE_SOURCE;WIN32;NDEBUG;_WINDOWS;WINDOWS;_USRDLL;undefined_EXPORTS"
 				RuntimeLibrary="2"
-				BufferSecurityCheck="FALSE"
+				BufferSecurityCheck="false"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib zdll.lib"
+				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib IlmThread.lib zlib1.lib"
 				OutputFile="$(OUTDIR)/core.dll"
 				LinkIncremental="0"
 				AdditionalLibraryDirectories="../../OpenEXR/lib-win32"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OUTDIR)/core.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				ImportLibrary="$(OUTDIR)/core.lib"
-				TargetMachine="1"/>
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
+				Name="VCWebDeploymentTool"
+			/>
 			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -120,210 +185,276 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath="..\..\core\api.cpp">
+				RelativePath="..\..\core\api.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\camera.cpp">
+				RelativePath="..\..\core\camera.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\color.cpp">
+				RelativePath="..\..\core\color.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\dynload.cpp">
+				RelativePath="..\..\core\dynload.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\exrio.cpp">
+				RelativePath="..\..\core\exrio.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\film.cpp">
+				RelativePath="..\..\core\film.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\geometry.cpp">
+				RelativePath="..\..\core\geometry.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\light.cpp">
+				RelativePath="..\..\core\light.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\material.cpp">
+				RelativePath="..\..\core\material.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\mc.cpp">
+				RelativePath="..\..\core\mc.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\paramset.cpp">
+				RelativePath="..\..\core\paramset.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\parser.cpp">
+				RelativePath="..\..\core\parser.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\pbrtlex.cpp">
+				RelativePath="..\..\core\pbrtlex.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\pbrtparse.cpp">
+				RelativePath="..\..\core\pbrtparse.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\primitive.cpp">
+				RelativePath="..\..\core\primitive.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\reflection.cpp">
+				RelativePath="..\..\core\reflection.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\sampling.cpp">
+				RelativePath="..\..\core\sampling.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\scene.cpp">
+				RelativePath="..\..\core\scene.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\shape.cpp">
+				RelativePath="..\..\core\shape.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\texture.cpp">
+				RelativePath="..\..\core\texture.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\timer.cpp">
+				RelativePath="..\..\core\timer.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\transform.cpp">
+				RelativePath="..\..\core\transform.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\transport.cpp">
+				RelativePath="..\..\core\transport.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\util.cpp">
+				RelativePath="..\..\core\util.cpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\volume.cpp">
+				RelativePath="..\..\core\volume.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath="..\..\core\api.h">
+				RelativePath="..\..\core\api.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\camera.h">
+				RelativePath="..\..\core\camera.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\color.h">
+				RelativePath="..\..\core\color.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\dynload.h">
+				RelativePath="..\..\core\dynload.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\film.h">
+				RelativePath="..\..\core\film.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\geometry.h">
+				RelativePath="..\..\core\geometry.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\kdtree.h">
+				RelativePath="..\..\core\kdtree.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\light.h">
+				RelativePath="..\..\core\light.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\material.h">
+				RelativePath="..\..\core\material.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\mc.h">
+				RelativePath="..\..\core\mc.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\mipmap.h">
+				RelativePath="..\..\core\mipmap.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\octree.h">
+				RelativePath="..\..\core\octree.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\paramset.h">
+				RelativePath="..\..\core\paramset.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\pbrt.h">
+				RelativePath="..\..\core\pbrt.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\pbrtparse.hpp">
+				RelativePath="..\..\core\pbrtparse.hpp"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\primitive.h">
+				RelativePath="..\..\core\primitive.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\reflection.h">
+				RelativePath="..\..\core\reflection.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\sampling.h">
+				RelativePath="..\..\core\sampling.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\scene.h">
+				RelativePath="..\..\core\scene.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\shape.h">
+				RelativePath="..\..\core\shape.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\texture.h">
+				RelativePath="..\..\core\texture.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\timer.h">
+				RelativePath="..\..\core\timer.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\tonemap.h">
+				RelativePath="..\..\core\tonemap.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\transform.h">
+				RelativePath="..\..\core\transform.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\transport.h">
+				RelativePath="..\..\core\transport.h"
+				>
 			</File>
 			<File
-				RelativePath="..\..\core\volume.h">
+				RelativePath="..\..\core\volume.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}">
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
 		</Filter>
 		<Filter
 			Name="Parser Files"
-			Filter="">
+			>
 			<File
-				RelativePath="..\..\core\pbrtlex.l">
+				RelativePath="..\..\core\pbrtlex.l"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Lexing $(InputName)"
-						CommandLine="c:\cygwin\bin\flex.exe -o$(InputDir)/$(InputName).cpp $(InputPath)"
-						Outputs="$(InputDir)/pbrtlex.cpp"/>
+						CommandLine="c:\cygwin\bin\flex.exe -o$(InputDir)/$(InputName).cpp $(InputPath)&#x0D;&#x0A;"
+						Outputs="$(InputDir)/pbrtlex.cpp"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Lexing $(InputName)"
-						CommandLine="c:\cygwin\bin\flex.exe -o$(InputDir)/$(InputName).cpp $(InputPath)"
-						Outputs="$(InputDir)/pbrtlex.cpp"/>
+						CommandLine="c:\cygwin\bin\flex.exe -o$(InputDir)/$(InputName).cpp $(InputPath)&#x0D;&#x0A;"
+						Outputs="$(InputDir)/pbrtlex.cpp"
+					/>
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\core\pbrtparse.y">
+				RelativePath="..\..\core\pbrtparse.y"
+				>
 				<FileConfiguration
-					Name="Debug|Win32">
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Yacc&apos;ing $(InputName)"
-						CommandLine="c:\cygwin\bin\bison.exe -d -v -t -o$(InputDir)/$(InputName).cpp $(InputPath)"
-						Outputs="$(InputDir)/$(InputName).cpp;$(InputDir)$(InputName).hpp"/>
+						CommandLine="c:\cygwin\bin\bison.exe -d -v -t -o$(InputDir)/$(InputName).cpp $(InputPath)&#x0D;&#x0A;"
+						Outputs="$(InputDir)/$(InputName).cpp;$(InputDir)$(InputName).hpp"
+					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32">
+					Name="Release|Win32"
+					>
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Yacc&apos;ing $(InputName)"
-						CommandLine="c:\cygwin\bin\bison.exe -d -v -t -o$(InputDir)/$(InputName).cpp $(InputPath)"
-						Outputs="$(InputDir)/$(InputName).cpp;$(InputDir)$(InputName).hpp"/>
+						CommandLine="c:\cygwin\bin\bison.exe -d -v -t -o$(InputDir)/$(InputName).cpp $(InputPath)&#x0D;&#x0A;"
+						Outputs="$(InputDir)/$(InputName).cpp;$(InputDir)$(InputName).hpp"
+					/>
 				</FileConfiguration>
 			</File>
 		</Filter>
