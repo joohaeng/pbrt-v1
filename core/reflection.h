@@ -369,6 +369,49 @@ private:
 	Spectrum Rd, Rs;
 	MicrofacetDistribution *distribution;
 };
+//
+// Multilobe Cook-Torrance model
+// Added by Joo-Haeng Lee (2008-05-27)
+// Source from LuxRender
+//
+class  COREDLL CookTorrance : public BxDF {
+public:
+  // CookTorrance Public Methods
+  CookTorrance(const Spectrum &kd, u_int nl,
+               const Spectrum *ks, MicrofacetDistribution **dist, Fresnel **fres);
+  CookTorrance(const Spectrum &kd, u_int nl,
+               const Spectrum *ks, MicrofacetDistribution **dist, Fresnel **fres, BxDFType t);
+  Spectrum f(const Vector &wo, const Vector &wi) const;
+  float G(const Vector &wo, const Vector &wi, const Vector &wh) const;
+  Spectrum Sample_f(const Vector &wi, Vector *sampled_f, float u1, float u2, float *pdf, float *pdfBack = NULL) const;
+  float Pdf(const Vector &wi, const Vector &wo) const;
+private:
+  // Cook-Torrance Private Data
+  Spectrum KD;
+  u_int nLobes;
+  const Spectrum *KS;
+  MicrofacetDistribution **distribution;
+  Fresnel **fresnel;
+};
+//
+// Beckmann distribution function
+// Added by Joo-Haeng Lee (2008-05-27)
+// Source from LuxRender
+//
+class COREDLL Beckmann : public MicrofacetDistribution {
+public:
+
+  Beckmann (float rms);
+
+  // Beckmann Public Methods
+  float D (const Vector &wh) const;
+  virtual void Sample_f (const Vector &wi, Vector *sampled_f, float u1, float u2, float *pdf) const;
+  virtual float Pdf (const Vector &wi, const Vector &wo) const;
+
+private:
+
+  float r;
+};
 // BSDF Inline Method Definitions
 inline void BSDF::Add(BxDF *b) {
 	Assert(nBxDFs < MAX_BxDFS);
@@ -380,4 +423,19 @@ inline int BSDF::NumComponents(BxDFType flags) const {
 		if (bxdfs[i]->MatchesFlags(flags)) ++num;
 	return num;
 }
+
+//
+// Class: FresnelSchlick
+// Source from LuxRender
+// Added by Joo-Haeng Lee
+// date: 2008-06-27
+//
+class COREDLL FresnelSchlick : public Fresnel {
+public:
+  Spectrum Evaluate(float cosi) const;
+  FresnelSchlick (float ni) {normal_incidence = ni;};
+private:
+  float normal_incidence;
+};
+
 #endif // PBRT_REFLECTION_H

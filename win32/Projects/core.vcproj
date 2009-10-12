@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib zlib1.lib"
+				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib IlmThread.lib zlib1.lib"
 				OutputFile="$(OUTDIR)/core.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../OpenEXR/lib-win32"

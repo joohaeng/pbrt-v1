@@ -335,6 +335,164 @@ float FresnelBlend::Pdf(const Vector &wo,
 	return .5f * (fabsf(wi.z) * INV_PI +
 		distribution->Pdf(wo, wi));
 }
+CookTorrance::CookTorrance(const Spectrum &kd, 
+						   u_int nl,
+                           const Spectrum *ks,
+                           MicrofacetDistribution **dist, 
+						   Fresnel **fres) 
+						   : BxDF(BxDFType(BSDF_REFLECTION | BSDF_SPECULAR)) {
+  KD = kd;
+  KS = ks;
+  nLobes = nl;
+  distribution = dist;
+  fresnel = fres;
+}
+CookTorrance::CookTorrance(const Spectrum &kd, 
+						   u_int nl,
+                           const Spectrum *ks,
+                           MicrofacetDistribution **dist, 
+						   Fresnel **fres,
+						   BxDFType type) 
+						   : BxDF(type) {
+  KD = kd;
+  KS = ks;
+  nLobes = nl;
+  distribution = dist;
+  fresnel = fres;
+}
+
+Spectrum CookTorrance::f(const Vector &wo, const Vector &wi) const {
+
+	//
+	// <task> diffuse term
+	//
+	Spectrum ret = KD * INV_PI;
+
+	float cosThetaO = fabsf(CosTheta(wo));
+	float cosThetaI = fabsf(CosTheta(wi));
+	Vector wh = Normalize(wi + wo);
+	float cosThetaH = Dot(wi, wh);
+	float cG = G(wo, wi, wh);
+	Spectrum cF;
+	float cD;
+
+	//
+	// <task> specular term
+	//
+	for (u_int i = 0; i < nLobes; i++) {
+		// Add contribution for $i$th Cook-Torrance lobe
+		cF = fresnel[i]->Evaluate(cosThetaH);
+		cD = distribution[i]->D(wh);
+		ret += KS[i] * cG * cD * cF / (M_PI * cosThetaI * cosThetaO);
+	}
+	return ret;
+}
+
+float CookTorrance::G(const Vector &wo, const Vector &wi, const Vector &wh) const {
+	float NdotWh = fabsf(CosTheta(wh));
+	float NdotWo = fabsf(CosTheta(wo));
+	float NdotWi = fabsf(CosTheta(wi));
+  float WOdotWh = AbsDot(wo, wh);
+  return min(1.f, min((2.f * NdotWh * NdotWo / WOdotWh), (2.f * NdotWh * NdotWi / WOdotWh)));
+}
+
+Spectrum CookTorrance::Sample_f(const Vector &wo, Vector *wi, float u1, float u2, float *pdf, float *pdfBack) const {
+  // Pick a random component
+  u_int comp = RandomUInt() % (nLobes+1);
+
+  if (comp == nLobes) {
+    // The diffuse term; cosine-sample the hemisphere, flipping the direction if necessary
+    *wi = CosineSampleHemisphere(u1, u2);
+    if (wo.z < 0.)
+      wi->z *= -1.f;
+  }
+  else {
+    // Sample lobe number _comp_ for Cook-Torrance BRDF
+   distribution[comp]->Sample_f(wo, wi, u1, u2, pdf);
+  }
+  *pdf = Pdf(wo, *wi);
+  if (*pdf == 0.f) {
+	  if (pdfBack)
+		  *pdfBack = 0.f;
+	  return Spectrum(0.f);
+  }
+  if (pdfBack)
+	  *pdfBack = Pdf(*wi, wo);
+
+  return f(wo, *wi);
+}
+
+float CookTorrance::Pdf(const Vector &wo, const Vector &wi) const {
+  if (!SameHemisphere(wo, wi))
+    return 0.f;
+
+  // Average of all pdf's
+  float pdfSum = fabsf(wi.z) * INV_PI;
+
+  for (u_int i = 0; i < nLobes; ++i) {
+    pdfSum += distribution[i]->Pdf(wo, wi);
+  }
+  return pdfSum / (1.f + nLobes);
+}
+//
+// Beckmann distribution function
+// Added by Joo-Haeng Lee (2008-05-27)
+// Source from LuxRender
+//
+Beckmann::Beckmann(float rms) {
+  r = rms;
+}
+
+float Beckmann::D(const Vector &wh) const {
+  float costhetah = CosTheta(wh);
+  float theta = acos(costhetah);
+  float tanthetah = tan(theta);
+
+  float dfac = tanthetah / r;
+
+  return exp(-(dfac * dfac)) / (r * r * powf(costhetah, 4.0));
+}
+
+void Beckmann::Sample_f(const Vector &wo, Vector *wi, float u1, float u2, float *pdf) const {
+  // Compute sampled half-angle vector $\wh$ for Beckmann distribution
+  // Adapted from B. Walter et al, Microfacet Models for Refraction, Eurographics Symposium on Rendering, 2007, page 7
+
+  float theta = atan (sqrt (-(r * r) * log(1.0 - u1)));
+  float costheta = cos (theta);
+  float sintheta = sqrtf(max(0.f, 1.f - costheta*costheta));
+  float phi = u2 * 2.f * M_PI;
+
+  Vector H = SphericalDirection(sintheta, costheta, phi);
+
+  if (!SameHemisphere(wo, H))
+    H.z *= -1.f;
+
+  // Compute incident direction by reflecting about $\wh$
+  *wi = -wo + 2.f * Dot(wo, H) * H;
+
+  // Compute PDF for \wi from Beckmann distribution - note that the inverse of the integral over
+  // the Beckmann distribution is not available in closed form, so this is not really correct
+  // (see Kelemen and Szirmay-Kalos / Microfacet Based BRDF Model, Eurographics 2001)
+
+  float conversion_factor = 1.0 / (4.f * Dot(wo, H));
+  float beckmann_pdf = conversion_factor * D(H);
+
+  *pdf = beckmann_pdf;
+}
+
+// NB: See note above!
+float Beckmann::Pdf(const Vector &wo, const Vector &wi) const {
+  Vector H = Normalize(wo + wi);
+  float conversion_factor = 1.0 / 4.f * Dot(wo, H);
+  float beckmann_pdf = conversion_factor * D(H);
+
+  return beckmann_pdf;
+}
+
+Spectrum FresnelSchlick::Evaluate(float cosi) const {
+  return normal_incidence + (1.0f - normal_incidence) * powf (1.0 - cosi, 5.0f);
+}
+
 Spectrum BxDF::rho(const Vector &w, int nSamples,
 		float *samples) const {
 	if (!samples) {
