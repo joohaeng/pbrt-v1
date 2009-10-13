@@ -180,7 +180,7 @@ BSDF *MerlBRDF::GetBSDF(const DifferentialGeometry &dgGeom,
 
 	BSDF *bsdf = BSDF_ALLOC(BSDF)(dgs, dgGeom.nn);
 	
-#if 0
+#if 1
 	Spectrum r = Kd->Evaluate(dgs).Clamp();
 	bsdf->Add(BSDF_ALLOC(MerlBxDF)(MerlBRDF_table, r));
 #else

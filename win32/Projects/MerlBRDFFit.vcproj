@@ -120,7 +120,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\MerlBxDF&quot;;../../../core;&quot;$(include)&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\MerlBxDF&quot;;../../core;&quot;$(include)&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;MERLBRDF_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -139,7 +139,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="core.lib BRDF_VOL_UTIL_R.lib"
+				AdditionalDependencies="core.lib BRDF_VOL_READ_R.lib"
 				OutputFile="$(SolutionDir)/Projects/Release/$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(lib)&quot;;&quot;$(PBRT_ROOT)\win32\Projects\Release&quot;"
@@ -265,7 +265,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\MerlBRDFFit.cpp"
+				RelativePath="..\..\materials\MerlBRDFFit.cpp"
 				>
 			</File>
 		</Filter>

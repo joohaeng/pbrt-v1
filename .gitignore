@@ -1,13 +1,10 @@
 *.a
 objs/
 exrcheck
-#core/pbrtlex.cpp
-#core/pbrtparse.cpp
-#core/pbrtparse.h
-#core/pbrtparse.output
 *.old
 *.ncb
 *.user
+*.swp
 win32/Projects/Debug/
 win32/Projects/Release/
 win32/UpgradeLog.XML

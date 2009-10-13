@@ -152,7 +152,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 24 "core/pbrtparse.y"
+#line 11 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
 
 #include "api.h"
 #include "pbrt.h"
@@ -284,14 +284,14 @@ static bool lookupType(const char *token, int *type, string &name);
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 135 "core/pbrtparse.y"
+#line 122 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
 {
 char string[1024];
 float num;
 ParamArray *ribarray;
 }
-/* Line 193 of yacc.c.  */
-#line 295 "core/pbrtparse.cpp"
+/* Line 187 of yacc.c.  */
+#line 295 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\/pbrtparse.cpp"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -304,7 +304,7 @@ ParamArray *ribarray;
 
 
 /* Line 216 of yacc.c.  */
-#line 308 "core/pbrtparse.cpp"
+#line 308 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\/pbrtparse.cpp"
 
 #ifdef short
 # undef short
@@ -354,7 +354,7 @@ typedef short int yytype_int16;
 #define YYSIZE_MAXIMUM ((YYSIZE_T) -1)
 
 #ifndef YY_
-# if defined YYENABLE_NLS && YYENABLE_NLS
+# if YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -613,13 +613,13 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   157,   157,   161,   171,   176,   181,   185,   190,   194,
-     200,   205,   209,   212,   216,   222,   226,   231,   236,   240,
-     243,   247,   253,   257,   262,   266,   269,   287,   290,   294,
-     301,   308,   312,   316,   323,   329,   333,   337,   344,   348,
-     355,   359,   366,   370,   374,   378,   385,   389,   393,   400,
-     404,   408,   415,   422,   429,   433,   437,   443,   447,   454,
-     461,   465
+       0,   144,   144,   148,   158,   163,   168,   172,   177,   181,
+     187,   192,   196,   199,   203,   209,   213,   218,   223,   227,
+     230,   234,   240,   244,   249,   253,   256,   274,   277,   281,
+     288,   295,   299,   303,   310,   316,   320,   324,   331,   335,
+     342,   346,   353,   357,   361,   365,   372,   376,   380,   387,
+     391,   395,   402,   409,   416,   420,   424,   430,   434,   441,
+     448,   452
 };
 #endif
 
@@ -864,7 +864,7 @@ while (YYID (0))
    we won't break user code: when these are the locations we know.  */
 
 #ifndef YY_LOCATION_PRINT
-# if defined YYLTYPE_IS_TRIVIAL && YYLTYPE_IS_TRIVIAL
+# if YYLTYPE_IS_TRIVIAL
 #  define YY_LOCATION_PRINT(File, Loc)			\
      fprintf (File, "%d.%d-%d.%d",			\
 	      (Loc).first_line, (Loc).first_column,	\
@@ -1605,13 +1605,13 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 158 "core/pbrtparse.y"
+#line 145 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 3:
-#line 162 "core/pbrtparse.y"
+#line 149 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	if (cur_array) ArrayFree( cur_array );
 	cur_array = new ParamArray;
@@ -1623,42 +1623,42 @@ yyreduce:
     break;
 
   case 4:
-#line 172 "core/pbrtparse.y"
+#line 159 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	cur_array->element_size = sizeof( const char * );
 ;}
     break;
 
   case 5:
-#line 177 "core/pbrtparse.y"
+#line 164 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	cur_array->element_size = sizeof( float );
 ;}
     break;
 
   case 6:
-#line 182 "core/pbrtparse.y"
+#line 169 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = (yyvsp[(1) - (1)].ribarray);
 ;}
     break;
 
   case 7:
-#line 186 "core/pbrtparse.y"
+#line 173 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = (yyvsp[(1) - (1)].ribarray);
 ;}
     break;
 
   case 8:
-#line 191 "core/pbrtparse.y"
+#line 178 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = (yyvsp[(1) - (1)].ribarray);
 ;}
     break;
 
   case 9:
-#line 195 "core/pbrtparse.y"
+#line 182 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = ArrayDup(cur_array);
 	array_is_single_string = true;
@@ -1666,32 +1666,32 @@ yyreduce:
     break;
 
   case 10:
-#line 201 "core/pbrtparse.y"
+#line 188 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = ArrayDup(cur_array);
 ;}
     break;
 
   case 11:
-#line 206 "core/pbrtparse.y"
+#line 193 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 12:
-#line 210 "core/pbrtparse.y"
+#line 197 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 13:
-#line 213 "core/pbrtparse.y"
+#line 200 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 14:
-#line 217 "core/pbrtparse.y"
+#line 204 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	char *to_add = strdup((yyvsp[(2) - (2)].string));
 	AddArrayElement( &to_add );
@@ -1699,46 +1699,46 @@ yyreduce:
     break;
 
   case 15:
-#line 223 "core/pbrtparse.y"
+#line 210 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = (yyvsp[(1) - (1)].ribarray);
 ;}
     break;
 
   case 16:
-#line 227 "core/pbrtparse.y"
+#line 214 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = ArrayDup(cur_array);
 ;}
     break;
 
   case 17:
-#line 232 "core/pbrtparse.y"
+#line 219 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	(yyval.ribarray) = ArrayDup(cur_array);
 ;}
     break;
 
   case 18:
-#line 237 "core/pbrtparse.y"
+#line 224 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 19:
-#line 241 "core/pbrtparse.y"
+#line 228 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 20:
-#line 244 "core/pbrtparse.y"
+#line 231 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 21:
-#line 248 "core/pbrtparse.y"
+#line 235 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	float to_add = (yyvsp[(2) - (2)].num);
 	AddArrayElement( &to_add );
@@ -1746,32 +1746,32 @@ yyreduce:
     break;
 
   case 22:
-#line 254 "core/pbrtparse.y"
+#line 241 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 23:
-#line 258 "core/pbrtparse.y"
+#line 245 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	cur_paramlist_size = 0;
 ;}
     break;
 
   case 24:
-#line 263 "core/pbrtparse.y"
+#line 250 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 25:
-#line 266 "core/pbrtparse.y"
+#line 253 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 26:
-#line 270 "core/pbrtparse.y"
+#line 257 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	void *arg = new char[ (yyvsp[(2) - (2)].ribarray)->nelems * (yyvsp[(2) - (2)].ribarray)->element_size ];
 	memcpy(arg, (yyvsp[(2) - (2)].ribarray)->array, (yyvsp[(2) - (2)].ribarray)->nelems * (yyvsp[(2) - (2)].ribarray)->element_size);
@@ -1791,19 +1791,19 @@ yyreduce:
     break;
 
   case 27:
-#line 288 "core/pbrtparse.y"
+#line 275 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 28:
-#line 291 "core/pbrtparse.y"
+#line 278 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 ;}
     break;
 
   case 29:
-#line 295 "core/pbrtparse.y"
+#line 282 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1813,7 +1813,7 @@ yyreduce:
     break;
 
   case 30:
-#line 302 "core/pbrtparse.y"
+#line 289 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1823,21 +1823,21 @@ yyreduce:
     break;
 
   case 31:
-#line 309 "core/pbrtparse.y"
+#line 296 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtAttributeBegin();
 ;}
     break;
 
   case 32:
-#line 313 "core/pbrtparse.y"
+#line 300 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtAttributeEnd();
 ;}
     break;
 
   case 33:
-#line 317 "core/pbrtparse.y"
+#line 304 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1847,7 +1847,7 @@ yyreduce:
     break;
 
   case 34:
-#line 324 "core/pbrtparse.y"
+#line 311 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	if (VerifyArrayLength( (yyvsp[(2) - (2)].ribarray), 16, "ConcatTransform" ))
 		pbrtConcatTransform( (float *) (yyvsp[(2) - (2)].ribarray)->array );
@@ -1856,21 +1856,21 @@ yyreduce:
     break;
 
   case 35:
-#line 330 "core/pbrtparse.y"
+#line 317 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtCoordinateSystem( (yyvsp[(2) - (2)].string) );
 ;}
     break;
 
   case 36:
-#line 334 "core/pbrtparse.y"
+#line 321 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtCoordSysTransform( (yyvsp[(2) - (2)].string) );
 ;}
     break;
 
   case 37:
-#line 338 "core/pbrtparse.y"
+#line 325 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1880,14 +1880,14 @@ yyreduce:
     break;
 
   case 38:
-#line 345 "core/pbrtparse.y"
+#line 332 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtIdentity();
 ;}
     break;
 
   case 39:
-#line 349 "core/pbrtparse.y"
+#line 336 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1897,14 +1897,14 @@ yyreduce:
     break;
 
   case 40:
-#line 356 "core/pbrtparse.y"
+#line 343 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtLookAt((yyvsp[(2) - (10)].num), (yyvsp[(3) - (10)].num), (yyvsp[(4) - (10)].num), (yyvsp[(5) - (10)].num), (yyvsp[(6) - (10)].num), (yyvsp[(7) - (10)].num), (yyvsp[(8) - (10)].num), (yyvsp[(9) - (10)].num), (yyvsp[(10) - (10)].num));
 ;}
     break;
 
   case 41:
-#line 360 "core/pbrtparse.y"
+#line 347 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1914,28 +1914,28 @@ yyreduce:
     break;
 
   case 42:
-#line 367 "core/pbrtparse.y"
+#line 354 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtObjectBegin((yyvsp[(2) - (2)].string));
 ;}
     break;
 
   case 43:
-#line 371 "core/pbrtparse.y"
+#line 358 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtObjectEnd();
 ;}
     break;
 
   case 44:
-#line 375 "core/pbrtparse.y"
+#line 362 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtObjectInstance((yyvsp[(2) - (2)].string));
 ;}
     break;
 
   case 45:
-#line 379 "core/pbrtparse.y"
+#line 366 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1945,21 +1945,21 @@ yyreduce:
     break;
 
   case 46:
-#line 386 "core/pbrtparse.y"
+#line 373 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtReverseOrientation();
 ;}
     break;
 
   case 47:
-#line 390 "core/pbrtparse.y"
+#line 377 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtRotate((yyvsp[(2) - (5)].num), (yyvsp[(3) - (5)].num), (yyvsp[(4) - (5)].num), (yyvsp[(5) - (5)].num));
 ;}
     break;
 
   case 48:
-#line 394 "core/pbrtparse.y"
+#line 381 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1969,21 +1969,21 @@ yyreduce:
     break;
 
   case 49:
-#line 401 "core/pbrtparse.y"
+#line 388 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtScale((yyvsp[(2) - (4)].num), (yyvsp[(3) - (4)].num), (yyvsp[(4) - (4)].num));
 ;}
     break;
 
   case 50:
-#line 405 "core/pbrtparse.y"
+#line 392 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtSearchPath((yyvsp[(2) - (2)].string));
 ;}
     break;
 
   case 51:
-#line 409 "core/pbrtparse.y"
+#line 396 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -1993,7 +1993,7 @@ yyreduce:
     break;
 
   case 52:
-#line 416 "core/pbrtparse.y"
+#line 403 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -2003,7 +2003,7 @@ yyreduce:
     break;
 
   case 53:
-#line 423 "core/pbrtparse.y"
+#line 410 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -2013,21 +2013,21 @@ yyreduce:
     break;
 
   case 54:
-#line 430 "core/pbrtparse.y"
+#line 417 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtTransformBegin();
 ;}
     break;
 
   case 55:
-#line 434 "core/pbrtparse.y"
+#line 421 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtTransformEnd();
 ;}
     break;
 
   case 56:
-#line 438 "core/pbrtparse.y"
+#line 425 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	if (VerifyArrayLength( (yyvsp[(2) - (2)].ribarray), 16, "Transform" ))
 		pbrtTransform( (float *) (yyvsp[(2) - (2)].ribarray)->array );
@@ -2036,14 +2036,14 @@ yyreduce:
     break;
 
   case 57:
-#line 444 "core/pbrtparse.y"
+#line 431 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtTranslate((yyvsp[(2) - (4)].num), (yyvsp[(3) - (4)].num), (yyvsp[(4) - (4)].num));
 ;}
     break;
 
   case 58:
-#line 448 "core/pbrtparse.y"
+#line 435 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -2053,7 +2053,7 @@ yyreduce:
     break;
 
   case 59:
-#line 455 "core/pbrtparse.y"
+#line 442 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	ParamSet params;
 	InitParamSet(params, CPS, CPT, CPA, CPSZ, CPTH);
@@ -2063,14 +2063,14 @@ yyreduce:
     break;
 
   case 60:
-#line 462 "core/pbrtparse.y"
+#line 449 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtWorldBegin();
 ;}
     break;
 
   case 61:
-#line 466 "core/pbrtparse.y"
+#line 453 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
     {
 	pbrtWorldEnd();
 ;}
@@ -2078,7 +2078,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 2082 "core/pbrtparse.cpp"
+#line 2082 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\/pbrtparse.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2292,7 +2292,7 @@ yyreturn:
 }
 
 
-#line 469 "core/pbrtparse.y"
+#line 456 "c:\\Users\\ktegan\\Downloads\\pbrt\\pbrt-1.03\\core\\pbrtparse.y"
 
 static void InitParamSet(ParamSet &ps, int count, const char **tokens,
 		void **args, int *sizes, bool *texture_helper) {

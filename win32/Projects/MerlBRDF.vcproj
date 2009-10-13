@@ -119,7 +119,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../../core;&quot;$(include)&quot;;..\MerlBxDF;&quot;$(BOOST_ROOT)&quot;;../MerlTfs"
+				AdditionalIncludeDirectories="../../core;&quot;$(include)&quot;;..\MerlBxDF;&quot;$(BOOST_ROOT)&quot;;../MerlTfs"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;MERLBRDF_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"

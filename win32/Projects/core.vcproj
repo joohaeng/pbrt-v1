@@ -141,10 +141,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib IlmThread.lib zlib1.lib"
+				AdditionalDependencies="Half.lib Iex.lib IlmImf.lib Imath.lib IlmThread.lib zlib1.lib BRDF_Vol_Read_R.lib MerlBRDFread.lib"
 				OutputFile="$(OUTDIR)/core.dll"
 				LinkIncremental="0"
 				AdditionalLibraryDirectories="../../OpenEXR/lib-win32"
+				IgnoreDefaultLibraryNames="libc.lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OUTDIR)/core.pdb"
 				SubSystem="2"
@@ -225,6 +226,14 @@
 			</File>
 			<File
 				RelativePath="..\..\core\mc.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\core\MerlBxDF.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\core\MerlBxDFFit.cpp"
 				>
 			</File>
 			<File
@@ -334,6 +343,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\core\MerlBxDF.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\core\MerlBxDFFit.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\core\mipmap.h"
 				>
 			</File>
@@ -423,6 +440,7 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
 					>
 					<Tool
 						Name="VCCustomBuildTool"
@@ -448,6 +466,7 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
 					>
 					<Tool
 						Name="VCCustomBuildTool"

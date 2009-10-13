@@ -63,7 +63,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="core.lib"
-				OutputFile="$(OutDir)/pbrt-v1d.exe"
+				OutputFile="$(OutDir)/pbrt.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="$(OUTDIR)"
 				GenerateDebugInformation="true"
@@ -144,7 +144,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="core.lib"
-				OutputFile="$(OutDir)/pbrt-v1.exe"
+				OutputFile="$(OutDir)/pbrt.exe"
 				LinkIncremental="0"
 				AdditionalLibraryDirectories="$(OUTDIR)"
 				GenerateDebugInformation="true"
