@@ -396,6 +396,7 @@ float CookTorrance::G(const Vector &wo, const Vector &wi, const Vector &wh) cons
   return min(1.f, min((2.f * NdotWh * NdotWo / WOdotWh), (2.f * NdotWh * NdotWi / WOdotWh)));
 }
 
+#if 0
 Spectrum CookTorrance::Sample_f(const Vector &wo, Vector *wi, float u1, float u2, float *pdf, float *pdfBack) const {
   // Pick a random component
   u_int comp = RandomUInt() % (nLobes+1);
@@ -434,6 +435,7 @@ float CookTorrance::Pdf(const Vector &wo, const Vector &wi) const {
   }
   return pdfSum / (1.f + nLobes);
 }
+#endif
 //
 // Beckmann distribution function
 // Added by Joo-Haeng Lee (2008-05-27)
